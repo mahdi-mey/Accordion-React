@@ -8,7 +8,7 @@ const faqs = [
     text: 'JavaScript was invented by Brendan Eich in 1995. It was developed for Netscape 2, and became the ECMA-262 standard in 1997. After Netscape handed JavaScript over to ECMA, the Mozilla foundation continued to develop JavaScript for the Firefox browser.'
   },
   {
-    title: 's it easy to learn JavaScript?',
+    title: 'Is it easy to learn JavaScript?',
     text: 'Its also one of the most intuitive programming languages to learn and use; often, its one of the first that newbie developers learn when they start to code. “JavaScript is very easy to implement,” writes one tech journalist for Web'
   },
   {
@@ -28,7 +28,7 @@ function App() {
 function Accordion({data}){
   console.log(data);
   return (
-    <div>
+    <div className="accordion">
       {data.map((elmnt, i) => (
         <AccordionItem title={elmnt.title} text={elmnt.text} num={i} />
       ))}
@@ -39,7 +39,7 @@ function Accordion({data}){
 function AccordionItem({num, title, text}){
   return(
     <div className="item">
-      <p className="number">{num}</p>
+      <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
       <h2 className="text">{title}</h2>
       <p className="icon"> - </p>
       <div className="content-box">{text}</div>

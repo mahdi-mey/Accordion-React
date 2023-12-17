@@ -20,9 +20,31 @@ const faqs = [
 function App() {
   return (
     <div className="App">
-      
+      <Accordion data={faqs} />
     </div>
   );
+}
+
+function Accordion({data}){
+  console.log(data);
+  return (
+    <div>
+      {data.map((elmnt, i) => (
+        <AccordionItem title={elmnt.title} text={elmnt.text} num={i} />
+      ))}
+    </div>
+  )
+}
+
+function AccordionItem({num, title, text}){
+  return(
+    <div className="item">
+      <p className="number">{num}</p>
+      <h2 className="text">{title}</h2>
+      <p className="icon"> - </p>
+      <div className="content-box">{text}</div>
+    </div>
+  )
 }
 
 export default App;

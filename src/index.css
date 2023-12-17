@@ -23,8 +23,9 @@ body {
   padding: 20px 24px;
   padding-right: 48px;
   cursor: pointer;
-  border-top: 4px solid #fff;
-  border-bottom: 4px solid #fff;
+  /* border: 3px solid #121212; */
+  border-radius: 6px;
+  /* border-bottom: 4px solid #121212; */
 
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -36,7 +37,7 @@ body {
 .number {
   font-size: 24px;
   font-weight: 500;
-  color: #ced4da;
+  color: #73767a;
 }
 
 .title,
@@ -67,6 +68,6 @@ body {
 }
 
 .open .number,
-.open .title {
+.open .text {
   color: #087f5b;
 }

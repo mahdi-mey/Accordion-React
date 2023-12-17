@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const faqs = [
   {
     title: 'What is the best programming language?',
@@ -26,23 +28,28 @@ function App() {
 }
 
 function Accordion({data}){
-  console.log(data);
   return (
     <div className="accordion">
       {data.map((elmnt, i) => (
-        <AccordionItem title={elmnt.title} text={elmnt.text} num={i} />
+        <AccordionItem title={elmnt.title} text={elmnt.text} num={i} key={i} />
       ))}
     </div>
   )
 }
 
 function AccordionItem({num, title, text}){
+  const [isOpen, setIsOpen] = useState(false) 
+
+  function handelToggle(){
+    setIsOpen(currentState => !currentState)
+  }
+  
   return(
-    <div className="item">
+    <div className={`item ${isOpen && 'open'}`} onClick={handelToggle}>
       <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
       <h2 className="text">{title}</h2>
-      <p className="icon"> - </p>
-      <div className="content-box">{text}</div>
+      <p className="icon">{isOpen === true ? '-' : '+'}</p>
+      {isOpen ? <div className="content-box">{text}</div> : null}
     </div>
   )
 }

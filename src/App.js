@@ -40,12 +40,10 @@ function Accordion({data}){
 }
 
 function AccordionItem({num, title, text, curOpen, onOpen}){
-  // const [isOpen, setIsOpen] = useState(false) 
   const isOpen = num === curOpen
 
   function handelToggle(){
-    // setIsOpen(currentState => !currentState)
-    onOpen(num)
+    onOpen(isOpen ? null : num)
   }
   
   return(
